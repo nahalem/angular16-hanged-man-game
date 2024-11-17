@@ -45,4 +45,8 @@ export class GameService {
   getMaxErrors(): number {
     return this.maxErrors;
   }
+
+  reset(): void {
+    this.initialize('')
+  }
 }

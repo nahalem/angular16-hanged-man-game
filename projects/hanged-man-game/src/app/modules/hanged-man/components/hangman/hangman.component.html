@@ -1,21 +1,24 @@
-<!-- src/app/hangman/hangman.component.html -->
 <div class="hangman-container">
-  <h2>Hanged Man version Beta</h2>
+  <h2>Hanged Man Play time</h2>
+  <h2><b>Round: {{stage}}</b></h2>
+  <app-stopwatch></app-stopwatch>
+  <button (click)="startNewGame()" *ngIf="!isGameStarted">Start Game</button>
   <p>{{ maskedWord }}</p>
-
   <div class="letter-buttons">
-    <button *ngFor="let letter of 'abcdefghijklmnopqrstuvwxyz'.split('')"
-            [disabled]="isGameOver || guessedLetters.includes(letter)"
+    <ng-container *ngIf="isGameStarted">
+      <button  *ngFor="let letter of getLetters()"
+            #lettersComponent
+            [disabled]="isGameOver  || isGuessedLetters(letter)"
+            [attr.id]="letter"
             (click)="guessLetter(letter)">
       {{ letter }}
-    </button>
+      </button>
+    </ng-container>
   </div>
-
-  <p>Mistakes: {{ getErrors() }} / {{ getMaxErrors() }}</p>
-
+  <p *ngIf="isGameStarted">Mistakes: {{ getErrors() }} / {{ getMaxErrors() }}</p>
   <div *ngIf="isGameOver">
     <p *ngIf="isWin">Congratulations! You won!</p>
     <p *ngIf="!isWin">You lose! The word you are looking for is: <b>{{ word }}</b></p>
-    <button (click)="startNewGame()">New Game</button>
+    <button (click)="startNewGame()" *ngIf="isGameStarted">New Game</button>
   </div>
 </div>
