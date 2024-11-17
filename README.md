@@ -28,9 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## How to run application
-cd server
+Root folder `cd server`
 Run command -> `npm install`
-cd..
+`cd..`
 Run command -> `npm install`
-Run server -> `node ./server/` server should run on port: 3000
-Run application -> `ng serve`
+Run server -> `node ./server/` server should start: (http://localhost:3000)
+Run application -> `ng serve` application should start: (http://localhost:4200)
