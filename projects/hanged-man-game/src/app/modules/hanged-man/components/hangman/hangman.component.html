@@ -15,7 +15,7 @@
 
   <div *ngIf="isGameOver">
     <p *ngIf="isWin">Congratulations! You won!</p>
-    <p *ngIf="!isWin">You lose! The word you are looking for is: {{ gameService['word'] }}</p>
+    <p *ngIf="!isWin">You lose! The word you are looking for is: <b>{{ word }}</b></p>
     <button (click)="startNewGame()">New Game</button>
   </div>
 </div>

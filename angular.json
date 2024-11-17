@@ -65,10 +65,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hanged-man-game:build:production"
+              "browserTarget": "hanged-man-game:build:production",
+              "proxyConfig": "projects/hanged-man-game/src/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "hanged-man-game:build:development"
+              "browserTarget": "hanged-man-game:build:development",
+              "proxyConfig": "projects/hanged-man-game/src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -96,6 +98,39 @@
               "projects/hanged-man-game/src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "server-hangedman-lib": {
+      "projectType": "library",
+      "root": "projects/server-hangedman-lib",
+      "sourceRoot": "projects/server-hangedman-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/server-hangedman-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/server-hangedman-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/server-hangedman-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/server-hangedman-lib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
