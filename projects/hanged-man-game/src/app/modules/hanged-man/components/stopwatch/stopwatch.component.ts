@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./stopwatch.component.scss']
 })
 export class StopwatchComponent implements OnInit{
+  elapsedTime: number = 0;
   private startTime: number | null = null;
   private timer: any = null;
-  public elapsedTime: number = 0;
   @Output() onClick = new EventEmitter();
 
   constructor() {

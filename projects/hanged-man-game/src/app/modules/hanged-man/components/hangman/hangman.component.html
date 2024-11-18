@@ -17,8 +17,12 @@
   </div>
   <p *ngIf="isGameStarted">Mistakes: {{ getErrors() }} / {{ getMaxErrors() }}</p>
   <div *ngIf="isGameOver">
-    <p *ngIf="isWin">Congratulations! You won!</p>
-    <p *ngIf="!isWin">You lose! The word you are looking for is: <b>{{ word }}</b></p>
+    <ng-container *ngIf="isWin">
+      <p >Congratulations! You won! </p>
+      <p><b>Rounds completed: {{ maximumStages }}</b></p>
+      <p><b>Your play time: {{ elapsedTime | date:'mm:ss.SSS' }}</b></p>
+    </ng-container>
+    <p *ngIf="!isWin">You lose! The word you are looking for is: <b>{{ word }}. </b> </p>
     <button (click)="startNewGame()" *ngIf="isGameStarted">New Game</button>
   </div>
 </div>
