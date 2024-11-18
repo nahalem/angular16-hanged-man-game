@@ -5,11 +5,11 @@ import { takeUntil, Subject } from 'rxjs';
 import { StopwatchComponent } from '../stopwatch/stopwatch.component';
 
 @Component({
-  selector: 'app-hangman',
-  templateUrl: './hangman.component.html',
-  styleUrls: ['./hangman.component.scss']
+  selector: 'app-hanged-main-man',
+  templateUrl: './hanged-man.component.html',
+  styleUrls: ['./hanged-man.component.scss']
 })
-export class HangmanComponent implements OnDestroy {
+export class HangedmanMainComponent implements OnDestroy {
   maskedWord: string = '';
   guessedLetters: string[] = [];
   isGameStarted: boolean = false;
@@ -92,10 +92,6 @@ export class HangmanComponent implements OnDestroy {
       const randomIndex = Math.floor(Math.random() * data.words.length);
       this.word = data.words[randomIndex];
       this.gameService.initialize(this.word);
-
-      console.log('====================================');
-      console.log("@@ this.word" , this.word);
-      console.log('====================================');
     });
   }
 
