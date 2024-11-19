@@ -1,4 +1,10 @@
-# Angular16WebWorkspace
+# Angular v. 16 WebWorkspace
+
+Includes:
+
+Hangedman basic game
+
+API server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
